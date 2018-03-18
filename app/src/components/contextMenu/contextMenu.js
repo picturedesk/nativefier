@@ -37,6 +37,13 @@ function initContextMenu(mainWindow) {
           mainWindow.webContents.send('contextMenuClosed');
         },
       },
+      {
+        label: 'Open New URL from Clipboard',
+        click: () => {
+          mainWindow.loadURL(clipboard.readText());
+          return;
+        },
+      },
     ];
 
     const contextMenu = Menu.buildFromTemplate(contextMenuTemplate);

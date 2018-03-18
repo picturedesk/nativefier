@@ -84,6 +84,15 @@ function createMenu({
           role: 'selectall',
         },
         {
+          label: 'Open New URL from Clipboard',
+          accelerator: 'CmdOrCtrl+J',
+          click: (item, focusedWindow) => {
+            if (focusedWindow) {
+              focusedWindow.loadURL(clipboard.readText());
+            }
+          },
+        },
+        {
           label: 'Clear App Data',
           click: () => {
             clearAppData();
